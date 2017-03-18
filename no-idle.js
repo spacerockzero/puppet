@@ -4,42 +4,34 @@ const board = new five.Board();
 board.on('ready', () => {
   let servo = new five.Servo({
     pin: 10,
-    startAt: 40
+    startAt: 20
   });
-  servo.sweep([40,80]);
-  // var servo = new five.Servo({
+
+  // Chaylo Phaif
+  const every = 20000; // move every {x} ms
+  const long = 3000 // for {x} ms
+  const speed = 3000 // taking {x} ms to move
+  
+  // // Best in E (doesn't work)
+  // const every = 10000; // move every {x} ms
+  // const long = 3000 // for {x} ms
+  // const speed = 500 // taking {x} ms to move
+
+  // // Phor Tza
+  // const every = 15000; // move every {x} ms
+  // const long = 7000 // for {x} ms
+  // const speed = 100 // taking {x} ms to move
+
+  // servo = new five.Servo({
   //   pin: 10,
-  //   startAt: 90
+  //   startAt: 20
   // });
-  // var lap = 0;
 
-  // servo.sweep().on("sweep:full", function() {
-  //   console.log("lap", ++lap);
+  const timer = setInterval(() => {
+    servo.to(0, speed);
+    setTimeout(() => {
+      servo.to(20, speed);
+    }, long); // move for {x} ms
+  }, every); // every {x} ms
 
-  //   if (lap === 1) {
-  //     this.sweep({
-  //       range: [80, 100],
-  //       step: 10
-  //     });
-  //   }
-
-  //   if (lap === 2) {
-  //     this.sweep({
-  //       range: [90, 100],
-  //       step: 5
-  //     });
-  //   }
-
-  //   if (lap === 3) {
-  //     this.sweep({
-  //       range: [70, 110],
-  //       step: 1
-  //     });
-  //   }
-
-  //   if (lap === 5) {
-  //     // process.exit(0);
-  //     lap = 0;
-  //   }
-  // }); 
 });
