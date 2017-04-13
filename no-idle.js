@@ -4,14 +4,18 @@ const board = new five.Board();
 board.on('ready', () => {
   let servo = new five.Servo({
     pin: 10,
-    startAt: 20
+    startAt: 150
   });
 
   // Chaylo Phaif
-  const every = 20000; // move every {x} ms
+  const every = 5000; // move every {x} ms
   const long = 3000 // for {x} ms
-  const speed = 3000 // taking {x} ms to move
-  
+  const speed = 1000 // taking {x} ms to move
+  const forward = 150;
+  // const mid = 100;
+  const back = 100;
+
+
   // // Best in E (doesn't work)
   // const every = 10000; // move every {x} ms
   // const long = 3000 // for {x} ms
@@ -28,9 +32,9 @@ board.on('ready', () => {
   // });
 
   const timer = setInterval(() => {
-    servo.to(0, speed);
+    servo.to(forward, speed);
     setTimeout(() => {
-      servo.to(20, speed);
+      servo.to(back, speed);
     }, long); // move for {x} ms
   }, every); // every {x} ms
 
