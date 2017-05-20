@@ -2,18 +2,14 @@ const five = require('johnny-five');
 const board = new five.Board();
 
 board.on('ready', () => {
-  let servo = new five.Servo({
-    pin: 10,
-    startAt: 150
-  });
 
   // Chaylo Phaif
-  const every = 5000; // move every {x} ms
+  const every = 10000; // move every {x} ms
   const long = 3000 // for {x} ms
-  const speed = 1000 // taking {x} ms to move
-  const forward = 150;
+  const speed = 5000 // taking {x} ms to move
+  const forward = 55;
   // const mid = 100;
-  const back = 100;
+  const back = 120;
 
 
   // // Best in E (doesn't work)
@@ -30,6 +26,11 @@ board.on('ready', () => {
   //   pin: 10,
   //   startAt: 20
   // });
+
+  let servo = new five.Servo({
+    pin: 10,
+    startAt: back
+  });
 
   const timer = setInterval(() => {
     servo.to(forward, speed);
