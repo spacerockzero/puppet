@@ -6,10 +6,12 @@ board.on('ready', () => {
   // Chaylo Phaif
   const every = 10000; // move every {x} ms
   const long = 3000 // for {x} ms
-  const speed = 5000 // taking {x} ms to move
-  const forward = 55;
-  // const mid = 100;
-  const back = 120;
+  const speed = 500 // taking {x} ms to move
+
+  const offset = 15
+  const forward = 55 + offset;
+  // const mid = 100;panda
+  const back = 70 + offset;
 
 
   // // Best in E (doesn't work)
