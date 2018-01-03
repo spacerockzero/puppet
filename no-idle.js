@@ -1,5 +1,9 @@
 const five = require('johnny-five');
-const board = new five.Board();
+const raspi = require('raspi-io')
+
+const board = new five.Board({
+	io: new raspi()
+});
 
 board.on('ready', () => {
 
@@ -30,7 +34,7 @@ board.on('ready', () => {
   // });
 
   let servo = new five.Servo({
-    pin: 10,
+    pin: 1,
     startAt: back
   });
 
